@@ -1,0 +1,29 @@
+package com.example.futurama.data.dto
+
+
+import com.example.futurama.domain.model.Person
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
+data class PersonDto(
+    val name: NameDto,
+    val images: ImagesDto,
+    val gender: String,
+    val species: String,
+    val homePlanet: String?,
+    val occupation: String,
+    val sayings: List<String>,
+    val id: Int,
+    val age: String
+){
+    fun toPerson()= Person(
+        name = name.fullName.joinToString(" "),
+        images = images.main,
+        gender = gender,
+        species = species,
+        homePlanet = homePlanet,
+        occupation = occupation,
+        id = id,
+        age = age
+    )
+}
