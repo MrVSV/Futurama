@@ -1,6 +1,8 @@
 package com.example.futurama.di
 
+import com.example.futurama.data.repository.LocalRepositoryImpl
 import com.example.futurama.data.repository.RemoteRepositoryImpl
+import com.example.futurama.domain.repository.LocalRepository
 import com.example.futurama.domain.repository.RemoteRepository
 import dagger.Binds
 import dagger.Module
@@ -17,4 +19,10 @@ abstract class RepositoryModule {
     abstract fun bindRemoteRepository(
         photoRemoteRepository: RemoteRepositoryImpl
     ): RemoteRepository
+
+    @Singleton
+    @Binds
+    abstract fun bindLocalRepository(
+        photoRemoteRepository: LocalRepositoryImpl
+    ): LocalRepository
 }

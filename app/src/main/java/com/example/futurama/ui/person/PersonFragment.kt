@@ -5,13 +5,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.futurama.databinding.FragmentPersonBinding
 import com.example.futurama.domain.model.Person
 import com.example.futurama.domain.tools.LoadState
 import com.example.futurama.ui.base.BaseFragment
-import com.example.humblrvsv.domain.tools.ClickableView
+import com.example.futurama.domain.tools.ClickableView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -26,7 +27,7 @@ class PersonFragment : BaseFragment<FragmentPersonBinding>() {
     private val viewModel by viewModels<PersonViewModel>()
 
     private val adapter by lazy {
-        PersonAdapter { clickableView, item -> onClick(clickableView, item) }
+        PersonAdapter { clickableView, item, position -> onClick(clickableView, item, position) }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,6 +36,7 @@ class PersonFragment : BaseFragment<FragmentPersonBinding>() {
         settingAdapter()
         observePersonData()
         loadStateItemsObserve()
+        initRefresher()
     }
 
     private fun loadStateItemsObserve() {
@@ -61,5 +63,17 @@ class PersonFragment : BaseFragment<FragmentPersonBinding>() {
     }
 
 
-    private fun onClick(clickableView: ClickableView, item: Person) {}
+    private fun onClick(clickableView: ClickableView, item: Person, position: Int) {
+        if(clickableView == ClickableView.FAVORITE) {
+            viewModel.onClick(item)
+            adapter.notifyItemChanged(position)
+        }
+    }
+
+    private fun initRefresher() {
+        binding.swipeRefresh.setOnRefreshListener {
+            observePersonData()
+            binding.swipeRefresh.isRefreshing = false
+        }
+    }
 }

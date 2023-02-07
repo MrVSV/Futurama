@@ -2,7 +2,7 @@ package com.example.futurama.ui.base
 
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.viewbinding.ViewBinding
-import com.example.humblrvsv.domain.tools.ClickableView
+import com.example.futurama.domain.tools.ClickableView
 
 abstract class BaseViewHolder<T : Any>(binding: ViewBinding) :
     ViewHolder(binding.root) {

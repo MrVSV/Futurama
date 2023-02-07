@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.example.futurama.databinding.PersonViewHolderBinding
 import com.example.futurama.domain.model.Person
-import com.example.humblrvsv.domain.tools.ClickableView
+import com.example.futurama.domain.tools.ClickableView
 
 class PersonAdapter(
-    private val onClick: (ClickableView, Person) -> Unit
+    private val onClick: (ClickableView, Person, position: Int) -> Unit
 ) : Adapter<PersonViewHolder>() {
 
     private var personList: List<Person> = emptyList()
@@ -31,6 +31,6 @@ class PersonAdapter(
 
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
         val item = personList[position]
-        holder.bind(item) { clickableView, person -> onClick(clickableView, person) }
+        holder.bind(item) { clickableView, person -> onClick(clickableView, person, position) }
     }
 }
