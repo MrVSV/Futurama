@@ -23,7 +23,7 @@ class RemoteRepositoryImpl @Inject constructor(
             for (b in db) {
                 if (a.id == b.id) {
                     a.isFavorite = true
-                    continue
+                    break
                 }
             }
         }
