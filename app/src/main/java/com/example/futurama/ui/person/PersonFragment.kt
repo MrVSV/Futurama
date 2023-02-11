@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -44,6 +45,10 @@ class PersonFragment : BaseFragment<FragmentPersonBinding>() {
             viewModel.loadState.collect{loadState ->
                 when(loadState){
                     LoadState.SUCCESS -> {}
+                    LoadState.ERROR -> {
+                        Toast.makeText(requireContext(), loadState.message, Toast.LENGTH_SHORT)
+                            .show()
+                    }
                     else -> {}
                 }
 
@@ -65,7 +70,7 @@ class PersonFragment : BaseFragment<FragmentPersonBinding>() {
 
     private fun onClick(clickableView: ClickableView, item: Person, position: Int) {
         if(clickableView == ClickableView.FAVORITE) {
-            viewModel.onClick(item)
+            viewModel.onClick(item, position)
             adapter.notifyItemChanged(position)
         }
     }

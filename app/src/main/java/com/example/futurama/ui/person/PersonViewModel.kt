@@ -1,6 +1,7 @@
 package com.example.futurama.ui.person
 
 
+import android.widget.Toast
 import androidx.lifecycle.viewModelScope
 import com.example.futurama.domain.model.Person
 import com.example.futurama.domain.tools.LoadState
@@ -37,26 +38,36 @@ class PersonViewModel @Inject constructor(
         }
     }
 
-    fun onClick(person: Person) {
-            when (person.isFavorite) {
-                false -> like(person)
-                true -> disLike(person)
+    fun onClick(person: Person, position: Int) {
+        when (person.isFavorite) {
+            false -> like(person, position)
+            true -> disLike(person, position)
+        }
+    }
+
+    private fun like(person: Person, position: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+//            person.isFavorite = true
+            try {
+                addToFavoriteUseCase.addToFavorite(person)
+                _personList.value[position].isFavorite = true
+            } catch (t: Throwable) {
+                _loadState.value = LoadState.ERROR
             }
 
-    }
-
-    private fun like(person: Person){
-        viewModelScope.launch(Dispatchers.IO){
-            person.isFavorite = true
-            addToFavoriteUseCase.addToFavorite(person)
         }
     }
 
-    private fun disLike(person: Person){
+    private fun disLike(person: Person, position: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            person.isFavorite = false
-            deleteFromFavoriteUseCase.deleteFromFavorite(person)
+//            person.isFavorite = false
+            try {
+                deleteFromFavoriteUseCase.deleteFromFavorite(person)
+                _personList.value[position].isFavorite = false
+            } catch (t: Throwable) {
+                _loadState.value = LoadState.ERROR
+            }
+
         }
     }
-
 }
