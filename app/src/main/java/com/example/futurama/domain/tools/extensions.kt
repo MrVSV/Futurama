@@ -1,31 +1,23 @@
 package com.example.futurama.domain.tools
 
+import android.content.Context
 import android.util.Log
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.load.resource.bitmap.TransformationUtils.fitCenter
-import com.bumptech.glide.request.RequestOptions
+import com.example.futurama.App
 import com.example.futurama.R
 import com.example.futurama.data.dto.PersonDto
+import com.example.futurama.di.AppComponent
 import com.example.futurama.domain.model.Person
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 
-//fun List<CommentListingDto>.toListCommentListing(): List<CommentListing> =
-//    this.map { item -> item.toCommentListing() }
-//
-//fun List<CommentDto>.toListComment(): List<Comment> =
-//    this.map { item -> item.toComment() }
-//
-//fun List<SubredditDto>.toListSubreddit(): List<Subreddit> =
-//    this.map { item -> item.toSubreddit() }
-//
-//fun List<FriendDto>.toListFriend(): List<Friend> =
-//    this.map { item -> item.toFriend() }
-//
-//fun List<PostDto>.toListPost(): List<Post> =
-//    this.map { item -> item.toPost() }
+fun Context.appComponent(): AppComponent =
+    when(this){
+        is App -> appComponent
+        else -> this.applicationContext.appComponent()
+    }
 
 fun List<PersonDto>.toListPerson(): List<Person> =
     this.map { item -> item.toPerson() }

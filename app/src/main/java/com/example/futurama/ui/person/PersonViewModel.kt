@@ -1,22 +1,19 @@
 package com.example.futurama.ui.person
 
 
-import android.widget.Toast
 import androidx.lifecycle.viewModelScope
 import com.example.futurama.domain.model.Person
 import com.example.futurama.domain.tools.LoadState
-import com.example.futurama.domain.usecase.GetPersonListUseCase
 import com.example.futurama.domain.usecase.AddToFavoriteUseCase
 import com.example.futurama.domain.usecase.DeleteFromFavoriteUseCase
+import com.example.futurama.domain.usecase.GetPersonListUseCase
 import com.example.futurama.ui.base.BaseViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
 class PersonViewModel @Inject constructor(
     private val getPersonListUseCase: GetPersonListUseCase,
     private val addToFavoriteUseCase: AddToFavoriteUseCase,

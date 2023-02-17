@@ -1,8 +1,21 @@
 package com.example.futurama
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.example.futurama.di.AppComponent
+import com.example.futurama.di.AppModule
+import com.example.futurama.di.DaggerAppComponent
 
-@HiltAndroidApp
-class App: Application() {
+class App : Application() {
+
+    lateinit var appComponent: AppComponent
+
+    override fun onCreate() {
+        super.onCreate()
+
+        appComponent = DaggerAppComponent
+            .builder()
+            .appModule(AppModule(this))
+            .build()
+
+    }
 }

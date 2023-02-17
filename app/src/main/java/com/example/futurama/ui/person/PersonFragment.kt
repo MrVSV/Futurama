@@ -1,31 +1,40 @@
 package com.example.futurama.ui.person
 
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.futurama.databinding.FragmentPersonBinding
 import com.example.futurama.domain.model.Person
-import com.example.futurama.domain.tools.LoadState
-import com.example.futurama.ui.base.BaseFragment
 import com.example.futurama.domain.tools.ClickableView
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.futurama.domain.tools.LoadState
+import com.example.futurama.domain.tools.appComponent
+import com.example.futurama.ui.base.BaseFragment
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-@AndroidEntryPoint
 class PersonFragment : BaseFragment<FragmentPersonBinding>() {
 
     override fun initBinding(inflater: LayoutInflater) =
         FragmentPersonBinding.inflate(inflater)
 
-    private val viewModel by viewModels<PersonViewModel>()
+    @Inject
+    lateinit var personViewModelFactory: PersonViewModelFactory
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        context.appComponent().inject(this)
+    }
+
+    private val viewModel by viewModels<PersonViewModel> { personViewModelFactory }
+
 
     private val adapter by lazy {
         PersonAdapter { clickableView, item, position -> onClick(clickableView, item, position) }
