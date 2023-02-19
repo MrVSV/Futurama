@@ -1,14 +1,10 @@
 package com.example.futurama.di
 
-import android.content.Context
-import dagger.Module
-import dagger.Provides
-
-@Module
-class AppModule(val context: Context) {
-
-    @Provides
-    fun provideContext(): Context{
-        return context
-    }
-}
+//@Module
+//class AppModule() {
+//
+//    @Provides
+//    fun provideContext(context: Context): Context{
+//        return context
+//    }
+//}

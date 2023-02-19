@@ -1,11 +1,11 @@
 package com.example.futurama
 
 import android.app.Application
+import android.content.Context
 import com.example.futurama.di.AppComponent
-import com.example.futurama.di.AppModule
 import com.example.futurama.di.DaggerAppComponent
 
-class App : Application() {
+class App : Application(), AppDeps {
 
     lateinit var appComponent: AppComponent
 
@@ -14,8 +14,14 @@ class App : Application() {
 
         appComponent = DaggerAppComponent
             .builder()
-            .appModule(AppModule(this))
+            .appDeps(this)
             .build()
 
     }
+
+    override val context: Context = this
+}
+
+interface AppDeps {
+    val context: Context
 }
