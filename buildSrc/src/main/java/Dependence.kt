@@ -11,6 +11,7 @@ object Dependence {
         const val glide = "4.14.2"
         const val retrofit = "2.9.0"
         const val moshi = "1.14.0"
+        const val lifecycle = "2.5.1"
     }
 
     object Core {
@@ -73,5 +74,11 @@ object Dependence {
         const val kotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
         const val adapters = "com.squareup.moshi:moshi-adapters:${Versions.moshi}"
         const val kapt = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
+    }
+
+    object Lifecycle {
+        const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
+        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+        const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
     }
 }
