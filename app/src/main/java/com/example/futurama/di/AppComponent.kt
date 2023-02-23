@@ -1,6 +1,6 @@
 package com.example.futurama.di
 
-import com.example.futurama.AppDeps
+import com.example.futurama.AppDependencies
 import com.example.futurama.ui.base.BaseViewModelFactory
 import com.example.futurama.ui.person.PersonFragment
 import com.example.futurama.ui.quiz.QuizFragment
@@ -14,7 +14,7 @@ import javax.inject.Singleton
         RepositoryModule::class,
         ViewModelModule::class
     ],
-    dependencies = [AppDeps::class]
+    dependencies = [AppDependencies::class]
 )
 @Singleton
 interface AppComponent {
@@ -27,7 +27,7 @@ interface AppComponent {
     interface Builder {
 
         //        @BindsInstance
-        fun appDeps(appDeps: AppDeps): Builder
+        fun appDeps(appDependencies: AppDependencies): Builder
 
         fun build(): AppComponent
 

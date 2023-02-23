@@ -5,7 +5,7 @@ import android.content.Context
 import com.example.futurama.di.AppComponent
 import com.example.futurama.di.DaggerAppComponent
 
-class App : Application(), AppDeps {
+class App : Application(), AppDependencies {
 
     lateinit var appComponent: AppComponent
 
@@ -22,6 +22,6 @@ class App : Application(), AppDeps {
     override val context: Context = this
 }
 
-interface AppDeps {
+interface AppDependencies {
     val context: Context
 }
