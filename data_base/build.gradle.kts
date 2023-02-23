@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.api"
+    namespace = "com.example.data_base"
     compileSdk = 33
 
     defaultConfig {
@@ -35,12 +35,8 @@ dependencies {
     implementation(Dependence.Core.core)
     implementation(Dependence.Core.appcompat)
 
-    implementation(Dependence.Retrofit.core)
-    implementation(Dependence.Retrofit.converterScalars)
-    implementation(Dependence.Retrofit.converterMoshi)
-
-    implementation(Dependence.Moshi.core)
-    implementation(Dependence.Moshi.kotlin)
-    implementation(Dependence.Moshi.adapters)
-    kapt(Dependence.Moshi.kapt)
+    implementation(Dependence.Room.runtime)
+    implementation(Dependence.Room.ktx)
+    implementation(Dependence.Room.paging)
+    kapt(Dependence.Room.kapt)
 }

@@ -42,6 +42,11 @@ android {
 
 dependencies {
 
+    implementation(project(":api"))
+    implementation(project(":data_base"))
+    implementation(project(":features:person_list"))
+    implementation(project(":core"))
+
     implementation(Dependence.Core.core)
     implementation(Dependence.Core.appcompat)
     implementation(Dependence.Core.material)

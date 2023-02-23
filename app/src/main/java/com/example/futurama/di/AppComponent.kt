@@ -1,32 +1,23 @@
 package com.example.futurama.di
 
-import com.example.futurama.AppDeps
-import com.example.futurama.ui.person.PersonFragment
+import com.example.api.ApiPerson
+import com.example.data_base.PersonDao
+import com.example.person_list.di.PersonListDependencies
 import dagger.Component
 import javax.inject.Singleton
 
 @Component(
     modules = [
-//    AppModule::class,
         ApiModule::class,
-        DatabaseModule::class,
-        RepositoryModule::class],
-    dependencies = [AppDeps::class]
+        DatabaseModule::class
+    ]
 )
 @Singleton
-interface AppComponent {
-    fun inject(personFragment: PersonFragment)
+interface AppComponent : PersonListDependencies {
 
-    @Component.Builder
-    interface Builder {
+    override val apiPerson: ApiPerson
+    override val personDao: PersonDao
 
-//        @BindsInstance
-        fun appDeps(appDeps: AppDeps): Builder
-
-        fun build(): AppComponent
-
-
-    }
 }
 
 
