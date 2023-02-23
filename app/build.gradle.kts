@@ -47,6 +47,10 @@ dependencies {
     implementation(Dependence.Core.material)
     implementation(Dependence.Core.constraint)
     implementation(Dependence.Core.fragmentKtx)
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
 
     testImplementation(Dependence.Test.junit)
     androidTestImplementation(Dependence.AndroidTest.junit)

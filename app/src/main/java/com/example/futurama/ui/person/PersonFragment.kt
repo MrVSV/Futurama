@@ -1,9 +1,7 @@
 package com.example.futurama.ui.person
 
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
@@ -15,6 +13,7 @@ import com.example.futurama.domain.tools.ClickableView
 import com.example.futurama.domain.tools.LoadState
 import com.example.futurama.domain.tools.appComponent
 import com.example.futurama.ui.base.BaseFragment
+import com.example.futurama.ui.base.BaseViewModelFactory
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -26,7 +25,7 @@ class PersonFragment : BaseFragment<FragmentPersonBinding>() {
         FragmentPersonBinding.inflate(inflater)
 
     @Inject
-    lateinit var personViewModelFactory: PersonViewModelFactory
+    lateinit var personViewModelFactory: BaseViewModelFactory
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -35,14 +34,12 @@ class PersonFragment : BaseFragment<FragmentPersonBinding>() {
 
     private val viewModel by viewModels<PersonViewModel> { personViewModelFactory }
 
-
     private val adapter by lazy {
         PersonAdapter { clickableView, item, position -> onClick(clickableView, item, position) }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d(TAG, "onViewCreated: 123")
         settingAdapter()
         observePersonData()
         loadStateItemsObserve()
