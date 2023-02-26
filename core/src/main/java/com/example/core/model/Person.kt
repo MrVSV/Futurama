@@ -1,4 +1,4 @@
-package com.example.futurama.domain.model
+package com.example.core.model
 
 import com.example.api.local.entity.PersonEntity
 

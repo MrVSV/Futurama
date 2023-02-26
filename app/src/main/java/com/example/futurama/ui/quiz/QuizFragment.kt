@@ -2,9 +2,9 @@ package com.example.futurama.ui.quiz
 
 import android.view.LayoutInflater
 import com.example.futurama.databinding.FragmentQuizBinding
-import com.example.futurama.ui.base.BaseFragment
+import com.example.core.base.BaseFragment
 
-class QuizFragment : BaseFragment<FragmentQuizBinding>() {
+class QuizFragment : com.example.core.base.BaseFragment<FragmentQuizBinding>() {
 
     private lateinit var viewModel: QuizViewModel
     override fun initBinding(inflater: LayoutInflater) =

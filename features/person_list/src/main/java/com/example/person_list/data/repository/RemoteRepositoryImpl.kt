@@ -1,11 +1,11 @@
-package com.example.futurama.data.repository
+package com.example.person_list.data.repository
 
 
 import com.example.api.api.ApiPerson
 import com.example.api.local.PersonDao
 import com.example.core.model.Person
+import com.example.core.tools.toListPerson
 import com.example.person_list.domain.repository.RemoteRepository
-import com.example.futurama.domain.tools.toListPerson
 import javax.inject.Inject
 
 class RemoteRepositoryImpl @Inject constructor(

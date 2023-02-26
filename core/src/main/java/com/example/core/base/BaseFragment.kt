@@ -1,4 +1,4 @@
-package com.example.futurama.ui.base
+package com.example.core.base
 
 import android.content.Context
 import android.os.Bundle

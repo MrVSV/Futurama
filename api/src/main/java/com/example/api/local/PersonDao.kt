@@ -1,8 +1,7 @@
-package com.example.futurama.data.local
+package com.example.api.local
 
 import androidx.room.*
-import com.example.futurama.data.local.entity.PersonEntity
-import kotlinx.coroutines.flow.Flow
+import com.example.api.local.entity.PersonEntity
 
 @Dao
 interface PersonDao {

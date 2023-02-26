@@ -1,23 +1,20 @@
-package com.example.futurama.domain.tools
+package com.example.core.tools
 
-import android.content.Context
 import android.util.Log
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.api.dto.PersonDto
+import com.example.core.R
 import com.example.core.model.Person
-import com.example.futurama.App
-import com.example.futurama.R
-import com.example.futurama.di.AppComponent
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 
-fun Context.appComponent(): AppComponent =
-    when(this){
-        is App -> appComponent
-        else -> this.applicationContext.appComponent()
-    }
+//fun Context.appComponent(): AppComponent =
+//    when(this){
+//        is App -> appComponent
+//        else -> this.applicationContext.appComponent()
+//    }
 
 fun List<PersonDto>.toListPerson(): List<Person> =
     this.map { item -> item.toPerson() }

@@ -1,9 +1,9 @@
-package com.example.futurama.ui.person
-
+package com.example.person_list.presentation
 
 import androidx.lifecycle.viewModelScope
-import com.example.core.tools.LoadState
+import com.example.core.base.BaseViewModel
 import com.example.core.model.Person
+import com.example.core.tools.LoadState
 import com.example.person_list.domain.usecase.AddToFavoriteUseCase
 import com.example.person_list.domain.usecase.DeleteFromFavoriteUseCase
 import com.example.person_list.domain.usecase.GetPersonListUseCase
@@ -13,11 +13,11 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class PersonViewModel @Inject constructor(
+class PersonListViewModel @Inject constructor(
     private val getPersonListUseCase: GetPersonListUseCase,
     private val addToFavoriteUseCase: AddToFavoriteUseCase,
     private val deleteFromFavoriteUseCase: DeleteFromFavoriteUseCase
-) : com.example.core.base.BaseViewModel() {
+) : BaseViewModel() {
 
     private val _personList = MutableStateFlow<List<Person>>(emptyList())
     val personList = _personList.asStateFlow()

@@ -7,19 +7,18 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.example.core.base.BaseViewModelFactory
+import com.example.core.model.Person
+import com.example.core.tools.ClickableView
+import com.example.core.tools.LoadState
 import com.example.futurama.databinding.FragmentPersonBinding
-import com.example.futurama.domain.model.Person
-import com.example.futurama.domain.tools.ClickableView
-import com.example.futurama.domain.tools.LoadState
 import com.example.futurama.domain.tools.appComponent
-import com.example.futurama.ui.base.BaseFragment
-import com.example.futurama.ui.base.BaseViewModelFactory
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class PersonFragment : BaseFragment<FragmentPersonBinding>() {
+class PersonFragment : com.example.core.base.BaseFragment<FragmentPersonBinding>() {
 
     override fun initBinding(inflater: LayoutInflater) =
         FragmentPersonBinding.inflate(inflater)

@@ -1,4 +1,4 @@
-package com.example.futurama.ui.person
+package com.example.person_list.presentation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

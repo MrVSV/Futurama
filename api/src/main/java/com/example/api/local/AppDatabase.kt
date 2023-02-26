@@ -1,8 +1,8 @@
-package com.example.futurama.data.local
+package com.example.api.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.futurama.data.local.entity.PersonEntity
+import com.example.api.local.entity.PersonEntity
 
 @Database(entities = [PersonEntity::class], version = 1)
 abstract class AppDatabase: RoomDatabase() {

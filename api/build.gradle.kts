@@ -46,4 +46,9 @@ dependencies {
     implementation(Dependence.Moshi.kotlin)
     implementation(Dependence.Moshi.adapters)
     kapt(Dependence.Moshi.kapt)
+
+    implementation(Dependence.Room.runtime)
+    implementation(Dependence.Room.ktx)
+    implementation(Dependence.Room.paging)
+    kapt(Dependence.Room.kapt)
 }

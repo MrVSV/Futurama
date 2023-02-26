@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.library)
     id(Plugins.android)
+    id(Plugins.kapt)
 }
 
 android {
@@ -30,9 +31,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+
+    implementation(project(":api"))
 
     implementation(Dependence.Core.core)
     implementation(Dependence.Core.appcompat)
@@ -42,4 +48,10 @@ dependencies {
     testImplementation(Dependence.Test.junit)
     androidTestImplementation(Dependence.AndroidTest.junit)
     androidTestImplementation(Dependence.AndroidTest.espresso)
+
+    implementation(Dependence.Dagger2.dagger)
+    kapt(Dependence.Dagger2.kapt)
+
+    implementation(Dependence.Glide.core)
+    kapt(Dependence.Glide.kapt)
 }

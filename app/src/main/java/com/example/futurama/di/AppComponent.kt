@@ -1,8 +1,8 @@
 package com.example.futurama.di
 
 import com.example.api.api.ApiPerson
+import com.example.core.base.BaseViewModelFactory
 import com.example.futurama.AppDependencies
-import com.example.futurama.ui.base.BaseViewModelFactory
 import com.example.futurama.ui.person.PersonFragment
 import com.example.futurama.ui.quiz.QuizFragment
 import com.example.person_list.di.PersonListDependencies
@@ -23,7 +23,7 @@ interface AppComponent: PersonListDependencies {
     fun inject(personFragment: PersonFragment)
     fun inject(quizFragment: QuizFragment)
 
-    val factory: BaseViewModelFactory
+
 
     @Component.Builder
     interface Builder {

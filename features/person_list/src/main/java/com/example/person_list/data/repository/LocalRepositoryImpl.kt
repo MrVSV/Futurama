@@ -1,4 +1,4 @@
-package com.example.futurama.data.repository
+package com.example.person_list.data.repository
 
 import com.example.api.local.PersonDao
 import com.example.core.model.Person

@@ -1,9 +1,9 @@
-package com.example.futurama.ui.person
+package com.example.person_list.presentation
 
 import com.example.core.databinding.PersonViewHolderBinding
-import com.example.core.tools.ClickableView
 import com.example.core.model.Person
-import com.example.futurama.domain.tools.loadImage
+import com.example.core.tools.ClickableView
+import com.example.core.tools.loadImage
 
 class PersonViewHolder(private val binding: PersonViewHolderBinding) :
     com.example.core.base.BaseViewHolder<Person>(binding) {

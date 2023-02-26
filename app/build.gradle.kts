@@ -44,6 +44,7 @@ dependencies {
 
     implementation(project(":api"))
     implementation(project("::features:person_list"))
+    implementation(project(":core"))
 
     implementation(Dependence.Core.core)
     implementation(Dependence.Core.appcompat)

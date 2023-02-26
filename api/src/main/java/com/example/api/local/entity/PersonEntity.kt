@@ -1,4 +1,4 @@
-package com.example.futurama.data.local.entity
+package com.example.api.local.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

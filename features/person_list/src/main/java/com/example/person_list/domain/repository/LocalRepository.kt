@@ -1,4 +1,4 @@
-package com.example.futurama.domain.repository
+package com.example.person_list.domain.repository
 
 import com.example.core.model.Person
 

@@ -2,8 +2,8 @@ package com.example.futurama.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.futurama.data.local.AppDatabase
-import com.example.futurama.data.local.PersonDao
+import com.example.api.local.AppDatabase
+import com.example.api.local.PersonDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

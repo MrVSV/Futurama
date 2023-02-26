@@ -1,9 +1,9 @@
 package com.example.futurama.di
 
-import com.example.futurama.data.repository.LocalRepositoryImpl
-import com.example.futurama.data.repository.RemoteRepositoryImpl
-import com.example.futurama.domain.repository.LocalRepository
-import com.example.futurama.domain.repository.RemoteRepository
+import com.example.person_list.data.repository.LocalRepositoryImpl
+import com.example.person_list.data.repository.RemoteRepositoryImpl
+import com.example.person_list.domain.repository.LocalRepository
+import com.example.person_list.domain.repository.RemoteRepository
 import dagger.Binds
 import dagger.Module
 

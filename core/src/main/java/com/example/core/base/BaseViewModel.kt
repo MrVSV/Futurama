@@ -1,7 +1,7 @@
-package com.example.futurama.ui.base
+package com.example.core.base
 
 import androidx.lifecycle.ViewModel
-import com.example.futurama.domain.tools.LoadState
+import com.example.core.tools.LoadState
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

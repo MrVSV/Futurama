@@ -1,4 +1,4 @@
-package com.example.futurama.domain.usecase
+package com.example.person_list.domain.usecase
 
 import com.example.person_list.domain.repository.RemoteRepository
 import javax.inject.Inject
