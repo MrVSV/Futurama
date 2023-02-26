@@ -4,4 +4,5 @@ import com.example.api.api.ApiPerson
 
 interface PersonListDependencies {
     val apiPerson: ApiPerson
+
 }
