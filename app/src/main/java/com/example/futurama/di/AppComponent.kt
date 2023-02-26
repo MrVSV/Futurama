@@ -1,9 +1,11 @@
 package com.example.futurama.di
 
+import com.example.api.api.ApiPerson
 import com.example.futurama.AppDependencies
 import com.example.futurama.ui.base.BaseViewModelFactory
 import com.example.futurama.ui.person.PersonFragment
 import com.example.futurama.ui.quiz.QuizFragment
+import com.example.person_list.di.PersonListDependencies
 import dagger.Component
 import javax.inject.Singleton
 
@@ -17,7 +19,7 @@ import javax.inject.Singleton
     dependencies = [AppDependencies::class]
 )
 @Singleton
-interface AppComponent {
+interface AppComponent: PersonListDependencies {
     fun inject(personFragment: PersonFragment)
     fun inject(quizFragment: QuizFragment)
 
@@ -27,12 +29,14 @@ interface AppComponent {
     interface Builder {
 
         //        @BindsInstance
-        fun appDeps(appDependencies: AppDependencies): Builder
+        fun appDependencies(appDependencies: AppDependencies): Builder
 
         fun build(): AppComponent
 
 
     }
+
+    override val apiPerson: ApiPerson
 }
 
 

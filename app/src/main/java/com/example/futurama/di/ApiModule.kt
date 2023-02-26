@@ -1,6 +1,8 @@
 package com.example.futurama.di
 
-import com.example.futurama.data.api.ApiPerson
+
+
+import com.example.api.api.ApiPerson
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

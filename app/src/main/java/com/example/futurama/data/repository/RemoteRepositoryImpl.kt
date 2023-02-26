@@ -1,6 +1,7 @@
 package com.example.futurama.data.repository
 
-import com.example.futurama.data.api.ApiPerson
+
+import com.example.api.api.ApiPerson
 import com.example.futurama.data.local.PersonDao
 import com.example.futurama.domain.model.Person
 import com.example.futurama.domain.repository.RemoteRepository

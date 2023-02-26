@@ -42,12 +42,14 @@ android {
 
 dependencies {
 
+    implementation(project(":api"))
+    implementation(project("::features:person_list"))
+
     implementation(Dependence.Core.core)
     implementation(Dependence.Core.appcompat)
     implementation(Dependence.Core.material)
     implementation(Dependence.Core.constraint)
     implementation(Dependence.Core.fragmentKtx)
-
 
     implementation(Dependence.Lifecycle.runtime)
     implementation(Dependence.Lifecycle.viewModel)

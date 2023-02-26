@@ -5,9 +5,9 @@ import android.util.Log
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.example.api.dto.PersonDto
 import com.example.futurama.App
 import com.example.futurama.R
-import com.example.futurama.data.dto.PersonDto
 import com.example.futurama.di.AppComponent
 import com.example.futurama.domain.model.Person
 import com.google.android.material.tabs.TabLayout
@@ -21,6 +21,18 @@ fun Context.appComponent(): AppComponent =
 
 fun List<PersonDto>.toListPerson(): List<Person> =
     this.map { item -> item.toPerson() }
+
+fun PersonDto.toPerson()= Person(
+    name = name.fullName.joinToString(" "),
+    images = images.main,
+    gender = gender,
+    species = species,
+    homePlanet = homePlanet,
+    occupation = occupation,
+    id = id,
+    age = age,
+    isFavorite = isFavorite
+)
 
 fun TabLayout.setSelectedTabListener(block: (position: Int) -> Unit){
     this.addOnTabSelectedListener(object : OnTabSelectedListener{

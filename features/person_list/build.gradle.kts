@@ -1,6 +1,7 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id(Plugins.library)
+    id(Plugins.android)
+    id(Plugins.kapt)
 }
 
 android {
@@ -9,10 +10,6 @@ android {
 
     defaultConfig {
         minSdk = 26
-        targetSdk = 33
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -35,10 +32,37 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.8.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(project(":api"))
+    implementation(project(":core"))
+
+    implementation(Dependence.Core.core)
+    implementation(Dependence.Core.appcompat)
+    implementation(Dependence.Core.material)
+    implementation(Dependence.Core.constraint)
+    implementation(Dependence.Core.fragmentKtx)
+
+    implementation(Dependence.Lifecycle.runtime)
+    implementation(Dependence.Lifecycle.viewModel)
+    implementation(Dependence.Lifecycle.liveData)
+
+    implementation(Dependence.Navigation.fragmentKtx)
+    implementation(Dependence.Navigation.uiKtx)
+
+    implementation(Dependence.Recycler.recycler)
+    implementation(Dependence.Recycler.recyclerSelection)
+    implementation(Dependence.Recycler.paging)
+    implementation(Dependence.Recycler.swipeRefresh)
+
+    implementation(Dependence.LoggingInterceptor.log)
+
+    implementation(Dependence.Room.runtime)
+    implementation(Dependence.Room.ktx)
+    implementation(Dependence.Room.paging)
+    kapt(Dependence.Room.kapt)
+
+    implementation(Dependence.Dagger2.dagger)
+    kapt(Dependence.Dagger2.kapt)
+
+    implementation(Dependence.Glide.core)
+    kapt(Dependence.Glide.kapt)
 }
